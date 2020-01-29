@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		868CC13C23DDF64900BF603F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CC13B23DDF64900BF603F /* AppDelegate.swift */; };
 		868CC13E23DDF64900BF603F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CC13D23DDF64900BF603F /* SceneDelegate.swift */; };
-		868CC14023DDF64900BF603F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CC13F23DDF64900BF603F /* ViewController.swift */; };
+		868CC14023DDF64900BF603F /* LevelDesignerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CC13F23DDF64900BF603F /* LevelDesignerController.swift */; };
 		868CC14323DDF64900BF603F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 868CC14123DDF64900BF603F /* Main.storyboard */; };
 		868CC14623DDF64900BF603F /* Peggle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 868CC14423DDF64900BF603F /* Peggle.xcdatamodeld */; };
 		868CC14823DDF64C00BF603F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 868CC14723DDF64C00BF603F /* Assets.xcassets */; };
@@ -20,6 +20,7 @@
 		8690BC4D23DF0B5B0077F6E6 /* Peg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8690BC4B23DF0B5B0077F6E6 /* Peg.swift */; };
 		8690BC4F23DF0BA50077F6E6 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8690BC4E23DF0BA50077F6E6 /* Level.swift */; };
 		8690BC5023DF0BA50077F6E6 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8690BC4E23DF0BA50077F6E6 /* Level.swift */; };
+		8693ADF123DF5A3E00776F93 /* PegControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693ADF023DF5A3E00776F93 /* PegControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +44,7 @@
 		868CC13823DDF64900BF603F /* Peggle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Peggle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		868CC13B23DDF64900BF603F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		868CC13D23DDF64900BF603F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		868CC13F23DDF64900BF603F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		868CC13F23DDF64900BF603F /* LevelDesignerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelDesignerController.swift; sourceTree = "<group>"; };
 		868CC14223DDF64900BF603F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		868CC14523DDF64900BF603F /* Peggle.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Peggle.xcdatamodel; sourceTree = "<group>"; };
 		868CC14723DDF64C00BF603F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +58,7 @@
 		868CC16223DDF64C00BF603F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8690BC4B23DF0B5B0077F6E6 /* Peg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peg.swift; sourceTree = "<group>"; };
 		8690BC4E23DF0BA50077F6E6 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		8693ADF023DF5A3E00776F93 /* PegControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PegControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +112,9 @@
 				8690BC4A23DF0B2D0077F6E6 /* Models */,
 				868CC13B23DDF64900BF603F /* AppDelegate.swift */,
 				868CC13D23DDF64900BF603F /* SceneDelegate.swift */,
-				868CC13F23DDF64900BF603F /* ViewController.swift */,
+				868CC13F23DDF64900BF603F /* LevelDesignerController.swift */,
 				868CC14123DDF64900BF603F /* Main.storyboard */,
+				8693ADF023DF5A3E00776F93 /* PegControl.swift */,
 				868CC14723DDF64C00BF603F /* Assets.xcassets */,
 				868CC14923DDF64C00BF603F /* LaunchScreen.storyboard */,
 				868CC14C23DDF64C00BF603F /* Info.plist */,
@@ -278,9 +281,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8693ADF123DF5A3E00776F93 /* PegControl.swift in Sources */,
 				8690BC4F23DF0BA50077F6E6 /* Level.swift in Sources */,
 				8690BC4C23DF0B5B0077F6E6 /* Peg.swift in Sources */,
-				868CC14023DDF64900BF603F /* ViewController.swift in Sources */,
+				868CC14023DDF64900BF603F /* LevelDesignerController.swift in Sources */,
 				868CC13C23DDF64900BF603F /* AppDelegate.swift in Sources */,
 				868CC13E23DDF64900BF603F /* SceneDelegate.swift in Sources */,
 				868CC14623DDF64900BF603F /* Peggle.xcdatamodeld in Sources */,

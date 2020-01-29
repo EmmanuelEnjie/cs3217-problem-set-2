@@ -7,15 +7,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Level Designer Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Peggle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LevelDesignerController" customModule="Peggle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="X9q-VQ-9Qi">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="X9q-VQ-9Qi">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJH-d7-L7y">
@@ -31,6 +31,9 @@
                                                 </constraints>
                                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                                                 <state key="normal" image="peg-blue"/>
+                                                <connections>
+                                                    <action selector="selectTool:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YFN-Kp-quN"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaZ-uF-kM7">
                                                 <rect key="frame" x="80" y="0.0" width="64" height="64"/>
@@ -39,6 +42,9 @@
                                                 </constraints>
                                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                                                 <state key="normal" image="peg-orange"/>
+                                                <connections>
+                                                    <action selector="selectTool:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DGM-Uc-Wcn"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3N-cr-QL6">
                                                 <rect key="frame" x="160" y="0.0" width="64" height="64"/>
@@ -46,6 +52,9 @@
                                                     <constraint firstAttribute="width" secondItem="b3N-cr-QL6" secondAttribute="height" multiplier="1:1" id="1l1-i7-0di"/>
                                                 </constraints>
                                                 <state key="normal" image="xmark.circle" catalog="system"/>
+                                                <connections>
+                                                    <action selector="selectTool:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9uQ-ud-dFa"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -89,6 +98,12 @@
                                     <constraint firstItem="VQo-ql-cYu" firstAttribute="top" secondItem="lJH-d7-L7y" secondAttribute="topMargin" id="yFy-lf-1zh"/>
                                 </constraints>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ELc-Lf-k7C">
+                                <rect key="frame" x="132" y="60" width="150" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -102,6 +117,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="canvasControl" destination="X9q-VQ-9Qi" id="p5V-No-ss9"/>
+                        <outlet property="createNotRequiredPegTool" destination="QMB-X9-By3" id="rdf-g8-bpU"/>
+                        <outlet property="createRequiredPegTool" destination="yaZ-uF-kM7" id="jLR-o6-Baa"/>
+                        <outlet property="deletePegTool" destination="b3N-cr-QL6" id="Tug-uy-ng6"/>
+                        <outlet property="levelNameTextField" destination="ELc-Lf-k7C" id="F7y-ck-IGo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
