@@ -8,7 +8,7 @@
 
 import CoreGraphics
 
-struct Peg {
+struct Peg: Equatable, Codable {
     var center: CGPoint
     var radius: CGFloat
     var requiredToWin: Bool

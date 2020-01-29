@@ -16,6 +16,8 @@ class LevelDesignerController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var levelNameTextField: UITextField!
     @IBOutlet weak var canvasControl: UIImageView!
 
+    private(set) var level: Level?
+
     private var selectedTool: UIButton? {
         willSet {
             selectedTool?.isSelected = false
@@ -47,6 +49,9 @@ class LevelDesignerController: UIViewController, UITextFieldDelegate {
 
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(canvasTapped(tapGestureRecognizer:)))
         canvasControl.addGestureRecognizer(tapGestureRecognizer)
+
+        level = level ?? Level(name: "", pegs: [])
+        // TODO: Add level loading stuff here
     }
 
     // MARK: Actions
@@ -72,11 +77,39 @@ class LevelDesignerController: UIViewController, UITextFieldDelegate {
             pegControl.setImage(UIImage(named: "peg-orange"), for: .normal)
 
         case deletePegTool:
-            pegs.removeValue(forKey: pegControl)
-            pegControl.removeFromSuperview()
+            deletePeg(pegControl: pegControl)
 
         default:
             ()
+        }
+    }
+
+    @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        guard
+            gestureRecognizer.state == .ended,
+            let view = gestureRecognizer.view,
+            let pegControl = view as? PegControl
+        else {
+            return
+        }
+        deletePeg(pegControl: pegControl)
+    }
+
+    @objc func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {
+        guard
+            let view = gestureRecognizer.view,
+            let pegControl = view as? PegControl,
+            let peg = pegs[pegControl],
+            gestureRecognizer.state == .changed || gestureRecognizer.state == .ended
+        else {
+            return
+        }
+
+        let panCenter = gestureRecognizer.location(in: canvasControl)
+        let newPeg = Peg(center: panCenter, radius: peg.radius, requiredToWin: peg.requiredToWin)
+        if hasNoOverlaps(peg: newPeg, ignoredPeg: peg) {
+            pegControl.center = panCenter
+            pegs[pegControl] = newPeg
         }
     }
 
@@ -95,14 +128,15 @@ class LevelDesignerController: UIViewController, UITextFieldDelegate {
             requiredToWin: requiredToWin
         )
 
-        let hasNoOverlaps = pegs.values.allSatisfy { peg in
-            !peg.overlaps(with: newPeg)
-        }
-        guard hasNoOverlaps else {
+        guard hasNoOverlaps(peg: newPeg, ignoredPeg: nil) else {
             return
         }
         let pegControl = PegControl(peg: newPeg)
         pegControl.addTarget(self, action: #selector(pegTapped(pegControl:)), for: .touchUpInside)
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        pegControl.addGestureRecognizer(longPressGestureRecognizer)
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
+        pegControl.addGestureRecognizer(panGestureRecognizer)
 
         pegs[pegControl] = newPeg
         canvasControl.addSubview(pegControl)
@@ -122,6 +156,17 @@ class LevelDesignerController: UIViewController, UITextFieldDelegate {
     @IBAction func resetCanvas(_ sender: UIButton) {
         pegs.keys.forEach { $0.removeFromSuperview() }
         pegs = [:]
+    }
+
+    private func deletePeg(pegControl: PegControl) {
+        pegs.removeValue(forKey: pegControl)
+        pegControl.removeFromSuperview()
+    }
+
+    private func hasNoOverlaps(peg: Peg, ignoredPeg: Peg?) -> Bool {
+        pegs.values
+            .filter { ignoredPeg == nil || $0 != ignoredPeg }
+            .allSatisfy { !$0.overlaps(with: peg )}
     }
 }
 

@@ -6,9 +6,10 @@
 //  Copyright © 2020 Shawn Koh. All rights reserved.
 //
 
-struct Level {
+struct Level: Codable {
     // MARK: Properties
     var name: String
+    var pegs: [Peg]
     /**
      Consider having these
      var author: String
