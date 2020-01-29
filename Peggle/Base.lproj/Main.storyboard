@@ -68,6 +68,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jT-mz-pd4">
                                                 <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
                                                 <state key="normal" title="RESET"/>
+                                                <connections>
+                                                    <action selector="resetCanvas:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t4G-lO-5Rt"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nhj-JK-8UR">
                                                 <rect key="frame" x="62" y="0.0" width="40" height="30"/>

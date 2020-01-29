@@ -77,11 +77,16 @@ class LevelDesignerController: UIViewController, UITextFieldDelegate {
     }
 
     @objc func canvasTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        guard selectedTool == createNotRequiredPegTool || selectedTool == createRequiredPegTool else {
+        guard
+            selectedTool == createNotRequiredPegTool ||
+            selectedTool == createRequiredPegTool
+        else {
             return
         }
+
         let location = tapGestureRecognizer.location(in: canvasControl)
         let requiredToWin = selectedTool == createRequiredPegTool
+
         let peg = Peg(
             center: CGPoint(x: location.x, y: location.y),
             size: CGSize(width: 32, height: 32),
@@ -89,6 +94,7 @@ class LevelDesignerController: UIViewController, UITextFieldDelegate {
         )
         let pegControl = PegControl(peg: peg)
         pegControl.addTarget(self, action: #selector(pegTapped(pegControl:)), for: .touchUpInside)
+
         pegs[pegControl] = peg
         canvasControl.addSubview(pegControl)
     }
@@ -104,7 +110,7 @@ class LevelDesignerController: UIViewController, UITextFieldDelegate {
         levelName = textField.text
     }
 
-    private func resetCanvas() {
+    @IBAction func resetCanvas(_ sender: UIButton) {
         pegs.keys.forEach { $0.removeFromSuperview() }
         pegs = [:]
     }
