@@ -10,6 +10,10 @@ import CoreGraphics
 
 struct Peg {
     var center: CGPoint
-    var size: CGSize
+    var radius: CGFloat
     var requiredToWin: Bool
+
+    func overlaps(with peg: Peg) -> Bool {
+        center.distance(to: peg.center) < radius + peg.radius
+    }
 }

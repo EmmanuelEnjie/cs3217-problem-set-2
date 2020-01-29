@@ -13,7 +13,7 @@ class PegControl: UIButton {
     required init(peg: Peg) {
         super.init(frame: .zero)
         setImage(UIImage(named: peg.requiredToWin ? "peg-orange" : "peg-blue"), for: .normal)
-        bounds.size = peg.size
+        bounds.size = CGSize(width: peg.radius * 2, height: peg.radius * 2)
         center = peg.center
     }
 

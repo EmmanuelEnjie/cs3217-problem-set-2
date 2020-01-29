@@ -32,6 +32,10 @@ class LevelDesignerController: UIViewController, UITextFieldDelegate {
             levelNameTextField.text = levelName
         }
     }
+    var defaultPegRadius = CGFloat(16)
+    var defaultPegSize: CGSize {
+        CGSize(width: defaultPegRadius * 2, height: defaultPegRadius * 2)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,19 +87,24 @@ class LevelDesignerController: UIViewController, UITextFieldDelegate {
         else {
             return
         }
-
-        let location = tapGestureRecognizer.location(in: canvasControl)
         let requiredToWin = selectedTool == createRequiredPegTool
-
-        let peg = Peg(
+        let location = tapGestureRecognizer.location(in: canvasControl)
+        let newPeg = Peg(
             center: CGPoint(x: location.x, y: location.y),
-            size: CGSize(width: 32, height: 32),
+            radius: defaultPegRadius,
             requiredToWin: requiredToWin
         )
-        let pegControl = PegControl(peg: peg)
+
+        let hasNoOverlaps = pegs.values.allSatisfy { peg in
+            !peg.overlaps(with: newPeg)
+        }
+        guard hasNoOverlaps else {
+            return
+        }
+        let pegControl = PegControl(peg: newPeg)
         pegControl.addTarget(self, action: #selector(pegTapped(pegControl:)), for: .touchUpInside)
 
-        pegs[pegControl] = peg
+        pegs[pegControl] = newPeg
         canvasControl.addSubview(pegControl)
     }
 

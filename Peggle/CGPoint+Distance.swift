@@ -9,7 +9,7 @@
 import CoreGraphics
 
 extension CGPoint {
-    func distance(from: CGPoint, to: CGPoint) -> CGFloat {
-        hypot(from.x - to.x, from.y - to.y)
+    func distance(to: CGPoint) -> CGFloat {
+        hypot(x - to.x, y - to.y)
     }
 }
