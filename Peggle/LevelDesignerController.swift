@@ -8,12 +8,6 @@
 
 import UIKit
 
-enum SelectedMode {
-    case createBluePeg
-    case createOrangePeg
-    case deletePeg
-}
-
 class LevelDesignerController: UIViewController, UITextFieldDelegate {
     // MARK: Properties
     @IBOutlet weak var createNotRequiredPegTool: UIButton!
