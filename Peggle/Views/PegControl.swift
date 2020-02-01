@@ -8,18 +8,34 @@
 
 import UIKit
 
+protocol PegControlDelegate: class {
+}
+
 class PegControl: UIButton {
+    // MARK: Properties
+    var image: UIImage?
+    var radius: CGFloat
+    var delegate: PegControlDelegate?
+
     // MARK: Initialisers
-    required init(peg: Peg) {
-        super.init(frame: .zero)
-        setImage(UIImage(named: peg.requiredToWin ? "peg-orange" : "peg-blue"), for: .normal)
-        bounds.size = CGSize(width: peg.radius * 2, height: peg.radius * 2)
-        center = peg.center
+    required init(center: CGPoint, radius: CGFloat, image: UIImage?) {
+        self.radius = radius
+        self.image = image
+        super.init(frame:. zero)
+        self.center = center
+
+        reload()
     }
 
     // Not supported: Initialise via storyboard
     required init?(coder: NSCoder) {
         fatalError("init(coder:) is not supported.")
+    }
+
+    func reload() {
+        setImage(image, for: .normal)
+        let diameter = radius * 2
+        bounds.size = CGSize(width: diameter, height: diameter)
     }
 
     // Restricts the touch hitbox of the peg to a circle
@@ -28,3 +44,5 @@ class PegControl: UIButton {
         UIBezierPath(ovalIn: self.bounds).contains(point)
     }
 }
+
+

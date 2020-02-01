@@ -122,10 +122,10 @@
                     </view>
                     <connections>
                         <outlet property="canvasControl" destination="X9q-VQ-9Qi" id="p5V-No-ss9"/>
-                        <outlet property="createNotRequiredPegTool" destination="QMB-X9-By3" id="rdf-g8-bpU"/>
-                        <outlet property="createRequiredPegTool" destination="yaZ-uF-kM7" id="jLR-o6-Baa"/>
                         <outlet property="deletePegTool" destination="b3N-cr-QL6" id="Tug-uy-ng6"/>
                         <outlet property="levelNameTextField" destination="ELc-Lf-k7C" id="F7y-ck-IGo"/>
+                        <outlet property="normalPegTool" destination="QMB-X9-By3" id="90A-xh-2kA"/>
+                        <outlet property="objectivePegTool" destination="yaZ-uF-kM7" id="dp6-7q-aGr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
