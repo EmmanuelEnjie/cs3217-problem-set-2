@@ -44,6 +44,10 @@ class LevelDesignerController: UIViewController {
         // TODO: Add level loading stuff here
     }
 
+    override var prefersStatusBarHidden: Bool {
+        true
+    }
+
     // MARK: Actions
     @IBAction func selectTool(_ sender: UIButton) {
         guard pegTools.contains(sender) else {
@@ -71,7 +75,7 @@ class LevelDesignerController: UIViewController {
             radius: Settings.defaultPegRadius,
             type: selectedPegTool == normalPegTool ? .normal : .objective
         )
-        _ = level?.addPeg(peg)
+        level?.addPeg(peg)
     }
 
     @IBAction func resetCanvas(_ sender: UIButton) {

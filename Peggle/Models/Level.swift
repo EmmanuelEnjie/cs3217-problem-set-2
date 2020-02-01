@@ -37,6 +37,7 @@ struct Level {
         hasNoOverlappingPegs(peg: peg, ignoredPeg: nil)
     }
 
+    @discardableResult
     mutating func addPeg(_ peg: Peg) -> Bool {
         guard canAddPeg(peg) else {
             return false
@@ -49,6 +50,7 @@ struct Level {
     /**
      Removes the given element and any elements subsumed by the given element.
      */
+    @discardableResult
     mutating func removePeg(_ peg: Peg) -> Peg? {
         delegate?.didRemovePeg(peg)
         return pegs.remove(peg)
@@ -58,6 +60,7 @@ struct Level {
         pegs = []
     }
 
+    @discardableResult
     mutating func replacePeg(_ peg: Peg, with newPeg: Peg) -> Bool {
         guard hasNoOverlappingPegs(peg: newPeg, ignoredPeg: peg) else {
             return false

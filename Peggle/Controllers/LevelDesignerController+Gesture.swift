@@ -18,15 +18,15 @@ extension LevelDesignerController {
         case normalPegTool:
             var newPeg = peg
             newPeg.type = .normal
-            _ = level?.replacePeg(peg, with: newPeg)
+            level?.replacePeg(peg, with: newPeg)
 
         case objectivePegTool:
             var newPeg = peg
             newPeg.type = .objective
-            _ = level?.replacePeg(peg, with: newPeg)
+            level?.replacePeg(peg, with: newPeg)
 
         case deletePegTool:
-            _ = level?.removePeg(peg)
+            level?.removePeg(peg)
 
         default:
             ()
@@ -42,7 +42,7 @@ extension LevelDesignerController {
         else {
             return
         }
-        _ = level?.removePeg(peg)
+        level?.removePeg(peg)
     }
 
     @objc func handlePegPan(_ gestureRecognizer: UIPanGestureRecognizer) {
@@ -58,6 +58,6 @@ extension LevelDesignerController {
         let panCenter = gestureRecognizer.location(in: canvasControl)
         var newPeg = peg
         newPeg.center = panCenter
-        _ = level?.replacePeg(peg, with: newPeg)
+        level?.replacePeg(peg, with: newPeg)
     }
 }
