@@ -8,12 +8,22 @@
 
 import CoreGraphics
 
-struct Peg: Equatable, Codable {
+struct Peg {
     var center: CGPoint
     var radius: CGFloat
-    var requiredToWin: Bool
+    var type: PegType
 
     func overlaps(with peg: Peg) -> Bool {
         center.distance(to: peg.center) < radius + peg.radius
     }
+}
+
+extension Peg: Hashable {}
+
+extension Peg: Codable {}
+
+// In Peggle, all Objective pegs have to be eliminated in order to win the level.
+enum PegType: Int, Codable {
+    case objective
+    case normal
 }

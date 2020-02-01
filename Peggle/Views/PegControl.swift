@@ -8,14 +8,10 @@
 
 import UIKit
 
-protocol PegControlDelegate: class {
-}
-
 class PegControl: UIButton {
     // MARK: Properties
     var image: UIImage?
     var radius: CGFloat
-    var delegate: PegControlDelegate?
 
     // MARK: Initialisers
     required init(center: CGPoint, radius: CGFloat, image: UIImage?) {

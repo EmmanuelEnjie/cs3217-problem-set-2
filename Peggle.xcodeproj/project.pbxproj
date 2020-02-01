@@ -14,14 +14,19 @@
 		868CC14623DDF64900BF603F /* Peggle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 868CC14423DDF64900BF603F /* Peggle.xcdatamodeld */; };
 		868CC14823DDF64C00BF603F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 868CC14723DDF64C00BF603F /* Assets.xcassets */; };
 		868CC14B23DDF64C00BF603F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 868CC14923DDF64C00BF603F /* LaunchScreen.storyboard */; };
-		868CC15623DDF64C00BF603F /* PeggleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CC15523DDF64C00BF603F /* PeggleTests.swift */; };
+		868CC15623DDF64C00BF603F /* BiMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CC15523DDF64C00BF603F /* BiMapTests.swift */; };
 		868CC16123DDF64C00BF603F /* PeggleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CC16023DDF64C00BF603F /* PeggleUITests.swift */; };
 		8690BC4C23DF0B5B0077F6E6 /* Peg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8690BC4B23DF0B5B0077F6E6 /* Peg.swift */; };
 		8690BC4D23DF0B5B0077F6E6 /* Peg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8690BC4B23DF0B5B0077F6E6 /* Peg.swift */; };
 		8690BC4F23DF0BA50077F6E6 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8690BC4E23DF0BA50077F6E6 /* Level.swift */; };
 		8690BC5023DF0BA50077F6E6 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8690BC4E23DF0BA50077F6E6 /* Level.swift */; };
+		86929AC123E3042F004E76DF /* CGPoint+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86929AC023E3042F004E76DF /* CGPoint+Hashable.swift */; };
 		8693ADF123DF5A3E00776F93 /* PegControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693ADF023DF5A3E00776F93 /* PegControl.swift */; };
 		8693ADF323E1AE5900776F93 /* CGPoint+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693ADF223E1AE5900776F93 /* CGPoint+Distance.swift */; };
+		86AAFE7223E54B6200728E75 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAFE7123E54B6200728E75 /* Settings.swift */; };
+		86AAFE7423E580B400728E75 /* LevelDesignerController+LevelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAFE7323E580B400728E75 /* LevelDesignerController+LevelDelegate.swift */; };
+		86AAFE7623E5884D00728E75 /* LevelDesignerController+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAFE7523E5884D00728E75 /* LevelDesignerController+Gesture.swift */; };
+		86EC417223E4954F00C208A5 /* BiMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EC417123E4954F00C208A5 /* BiMap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,15 +57,20 @@
 		868CC14A23DDF64C00BF603F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		868CC14C23DDF64C00BF603F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		868CC15123DDF64C00BF603F /* PeggleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeggleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		868CC15523DDF64C00BF603F /* PeggleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeggleTests.swift; sourceTree = "<group>"; };
+		868CC15523DDF64C00BF603F /* BiMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiMapTests.swift; sourceTree = "<group>"; };
 		868CC15723DDF64C00BF603F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		868CC15C23DDF64C00BF603F /* PeggleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeggleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		868CC16023DDF64C00BF603F /* PeggleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeggleUITests.swift; sourceTree = "<group>"; };
 		868CC16223DDF64C00BF603F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8690BC4B23DF0B5B0077F6E6 /* Peg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peg.swift; sourceTree = "<group>"; };
 		8690BC4E23DF0BA50077F6E6 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		86929AC023E3042F004E76DF /* CGPoint+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Hashable.swift"; sourceTree = "<group>"; };
 		8693ADF023DF5A3E00776F93 /* PegControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PegControl.swift; sourceTree = "<group>"; };
 		8693ADF223E1AE5900776F93 /* CGPoint+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Distance.swift"; sourceTree = "<group>"; };
+		86AAFE7123E54B6200728E75 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		86AAFE7323E580B400728E75 /* LevelDesignerController+LevelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LevelDesignerController+LevelDelegate.swift"; sourceTree = "<group>"; };
+		86AAFE7523E5884D00728E75 /* LevelDesignerController+Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LevelDesignerController+Gesture.swift"; sourceTree = "<group>"; };
+		86EC417123E4954F00C208A5 /* BiMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiMap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,16 +122,15 @@
 			isa = PBXGroup;
 			children = (
 				8690BC4A23DF0B2D0077F6E6 /* Models */,
+				86929ACD23E3D8B6004E76DF /* Controllers */,
+				86929ACE23E3D8D0004E76DF /* Views */,
+				86929ACF23E3D90E004E76DF /* Helpers */,
 				868CC13B23DDF64900BF603F /* AppDelegate.swift */,
 				868CC13D23DDF64900BF603F /* SceneDelegate.swift */,
-				868CC13F23DDF64900BF603F /* LevelDesignerController.swift */,
-				868CC14123DDF64900BF603F /* Main.storyboard */,
-				8693ADF023DF5A3E00776F93 /* PegControl.swift */,
 				868CC14723DDF64C00BF603F /* Assets.xcassets */,
-				868CC14923DDF64C00BF603F /* LaunchScreen.storyboard */,
 				868CC14C23DDF64C00BF603F /* Info.plist */,
 				868CC14423DDF64900BF603F /* Peggle.xcdatamodeld */,
-				8693ADF223E1AE5900776F93 /* CGPoint+Distance.swift */,
+				86AAFE7123E54B6200728E75 /* Settings.swift */,
 			);
 			path = Peggle;
 			sourceTree = "<group>";
@@ -129,7 +138,7 @@
 		868CC15423DDF64C00BF603F /* PeggleTests */ = {
 			isa = PBXGroup;
 			children = (
-				868CC15523DDF64C00BF603F /* PeggleTests.swift */,
+				868CC15523DDF64C00BF603F /* BiMapTests.swift */,
 				868CC15723DDF64C00BF603F /* Info.plist */,
 			);
 			path = PeggleTests;
@@ -151,6 +160,36 @@
 				8690BC4E23DF0BA50077F6E6 /* Level.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		86929ACD23E3D8B6004E76DF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				868CC13F23DDF64900BF603F /* LevelDesignerController.swift */,
+				86AAFE7323E580B400728E75 /* LevelDesignerController+LevelDelegate.swift */,
+				86AAFE7523E5884D00728E75 /* LevelDesignerController+Gesture.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		86929ACE23E3D8D0004E76DF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8693ADF023DF5A3E00776F93 /* PegControl.swift */,
+				868CC14123DDF64900BF603F /* Main.storyboard */,
+				868CC14923DDF64C00BF603F /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		86929ACF23E3D90E004E76DF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				86EC417123E4954F00C208A5 /* BiMap.swift */,
+				8693ADF223E1AE5900776F93 /* CGPoint+Distance.swift */,
+				86929AC023E3042F004E76DF /* CGPoint+Hashable.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,12 +324,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8693ADF123DF5A3E00776F93 /* PegControl.swift in Sources */,
+				86AAFE7623E5884D00728E75 /* LevelDesignerController+Gesture.swift in Sources */,
 				8690BC4F23DF0BA50077F6E6 /* Level.swift in Sources */,
 				8690BC4C23DF0B5B0077F6E6 /* Peg.swift in Sources */,
 				8693ADF323E1AE5900776F93 /* CGPoint+Distance.swift in Sources */,
+				86929AC123E3042F004E76DF /* CGPoint+Hashable.swift in Sources */,
+				86AAFE7423E580B400728E75 /* LevelDesignerController+LevelDelegate.swift in Sources */,
+				86EC417223E4954F00C208A5 /* BiMap.swift in Sources */,
 				868CC14023DDF64900BF603F /* LevelDesignerController.swift in Sources */,
 				868CC13C23DDF64900BF603F /* AppDelegate.swift in Sources */,
 				868CC13E23DDF64900BF603F /* SceneDelegate.swift in Sources */,
+				86AAFE7223E54B6200728E75 /* Settings.swift in Sources */,
 				868CC14623DDF64900BF603F /* Peggle.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,7 +345,7 @@
 			files = (
 				8690BC5023DF0BA50077F6E6 /* Level.swift in Sources */,
 				8690BC4D23DF0B5B0077F6E6 /* Peg.swift in Sources */,
-				868CC15623DDF64C00BF603F /* PeggleTests.swift in Sources */,
+				868CC15623DDF64C00BF603F /* BiMapTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
