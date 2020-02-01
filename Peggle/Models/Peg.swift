@@ -20,10 +20,8 @@ struct Peg {
 
 extension Peg: Hashable {}
 
-extension Peg: Codable {}
-
 // In Peggle, all Objective pegs have to be eliminated in order to win the level.
-enum PegType: Int, Codable {
+enum PegType {
     case objective
     case normal
 }

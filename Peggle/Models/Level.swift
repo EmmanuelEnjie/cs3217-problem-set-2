@@ -71,15 +71,3 @@ struct Level {
         return true
     }
 }
-
-//extension Level: Codable {
-//    static func == (lhs: Level, rhs: Level) -> Bool {
-//        lhs.name == rhs.name &&
-//        lhs.pegs == rhs.pegs
-//    }
-//
-//    func hash(into hasher: inout Hasher) {
-//        hasher.combine(name)
-//        hasher.combine(pegs)
-//    }
-//}
