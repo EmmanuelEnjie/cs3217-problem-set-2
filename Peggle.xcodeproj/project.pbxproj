@@ -3,15 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41FFA08FAB2254CDC5F0D3E5 /* Pods_PeggleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89497ECDF8DA3442D18EFEAB /* Pods_PeggleTests.framework */; };
 		868CC13C23DDF64900BF603F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CC13B23DDF64900BF603F /* AppDelegate.swift */; };
 		868CC13E23DDF64900BF603F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CC13D23DDF64900BF603F /* SceneDelegate.swift */; };
 		868CC14023DDF64900BF603F /* LevelDesignerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CC13F23DDF64900BF603F /* LevelDesignerController.swift */; };
 		868CC14323DDF64900BF603F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 868CC14123DDF64900BF603F /* Main.storyboard */; };
-		868CC14623DDF64900BF603F /* Peggle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 868CC14423DDF64900BF603F /* Peggle.xcdatamodeld */; };
 		868CC14823DDF64C00BF603F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 868CC14723DDF64C00BF603F /* Assets.xcassets */; };
 		868CC14B23DDF64C00BF603F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 868CC14923DDF64C00BF603F /* LaunchScreen.storyboard */; };
 		868CC15623DDF64C00BF603F /* BiMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CC15523DDF64C00BF603F /* BiMapTests.swift */; };
@@ -27,6 +27,8 @@
 		86AAFE7423E580B400728E75 /* LevelDesignerController+LevelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAFE7323E580B400728E75 /* LevelDesignerController+LevelDelegate.swift */; };
 		86AAFE7623E5884D00728E75 /* LevelDesignerController+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAFE7523E5884D00728E75 /* LevelDesignerController+Gesture.swift */; };
 		86EC417223E4954F00C208A5 /* BiMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EC417123E4954F00C208A5 /* BiMap.swift */; };
+		BF097AC6A7AF088167CED765 /* Pods_Peggle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1025EA551CE798D8EB3405F8 /* Pods_Peggle.framework */; };
+		DD7FB5720183896DC61F5E43 /* Pods_Peggle_PeggleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A2B22B49843D6AC1859DFB2 /* Pods_Peggle_PeggleUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,12 +49,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1025EA551CE798D8EB3405F8 /* Pods_Peggle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Peggle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E1E616C7BD9C8A00AAEC886 /* Pods-PeggleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeggleTests.debug.xcconfig"; path = "Target Support Files/Pods-PeggleTests/Pods-PeggleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5A2B22B49843D6AC1859DFB2 /* Pods_Peggle_PeggleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Peggle_PeggleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		868CC13823DDF64900BF603F /* Peggle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Peggle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		868CC13B23DDF64900BF603F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		868CC13D23DDF64900BF603F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		868CC13F23DDF64900BF603F /* LevelDesignerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelDesignerController.swift; sourceTree = "<group>"; };
 		868CC14223DDF64900BF603F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		868CC14523DDF64900BF603F /* Peggle.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Peggle.xcdatamodel; sourceTree = "<group>"; };
 		868CC14723DDF64C00BF603F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		868CC14A23DDF64C00BF603F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		868CC14C23DDF64C00BF603F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,6 +75,12 @@
 		86AAFE7323E580B400728E75 /* LevelDesignerController+LevelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LevelDesignerController+LevelDelegate.swift"; sourceTree = "<group>"; };
 		86AAFE7523E5884D00728E75 /* LevelDesignerController+Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LevelDesignerController+Gesture.swift"; sourceTree = "<group>"; };
 		86EC417123E4954F00C208A5 /* BiMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiMap.swift; sourceTree = "<group>"; };
+		89497ECDF8DA3442D18EFEAB /* Pods_PeggleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeggleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F814961264A38C4B605BE35 /* Pods-Peggle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peggle.release.xcconfig"; path = "Target Support Files/Pods-Peggle/Pods-Peggle.release.xcconfig"; sourceTree = "<group>"; };
+		BB0C4C841C90BA92A2A72BA7 /* Pods-Peggle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peggle.debug.xcconfig"; path = "Target Support Files/Pods-Peggle/Pods-Peggle.debug.xcconfig"; sourceTree = "<group>"; };
+		C108F7C5B54823866A12EB3E /* Pods-Peggle-PeggleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peggle-PeggleUITests.debug.xcconfig"; path = "Target Support Files/Pods-Peggle-PeggleUITests/Pods-Peggle-PeggleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C4E486D23BAD4AB714FDED61 /* Pods-PeggleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeggleTests.release.xcconfig"; path = "Target Support Files/Pods-PeggleTests/Pods-PeggleTests.release.xcconfig"; sourceTree = "<group>"; };
+		E3BCB5A9985BC273BDA37AEF /* Pods-Peggle-PeggleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peggle-PeggleUITests.release.xcconfig"; path = "Target Support Files/Pods-Peggle-PeggleUITests/Pods-Peggle-PeggleUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF097AC6A7AF088167CED765 /* Pods_Peggle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41FFA08FAB2254CDC5F0D3E5 /* Pods_PeggleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,12 +104,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD7FB5720183896DC61F5E43 /* Pods_Peggle_PeggleUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		471672348C68833B71010AEE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1025EA551CE798D8EB3405F8 /* Pods_Peggle.framework */,
+				89497ECDF8DA3442D18EFEAB /* Pods_PeggleTests.framework */,
+				5A2B22B49843D6AC1859DFB2 /* Pods_Peggle_PeggleUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		868CC12F23DDF64900BF603F = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +128,8 @@
 				868CC15423DDF64C00BF603F /* PeggleTests */,
 				868CC15F23DDF64C00BF603F /* PeggleUITests */,
 				868CC13923DDF64900BF603F /* Products */,
+				F71662BE6C4262F14A18946D /* Pods */,
+				471672348C68833B71010AEE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,7 +154,6 @@
 				868CC13D23DDF64900BF603F /* SceneDelegate.swift */,
 				868CC14723DDF64C00BF603F /* Assets.xcassets */,
 				868CC14C23DDF64C00BF603F /* Info.plist */,
-				868CC14423DDF64900BF603F /* Peggle.xcdatamodeld */,
 				86AAFE7123E54B6200728E75 /* Settings.swift */,
 			);
 			path = Peggle;
@@ -192,6 +216,19 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		F71662BE6C4262F14A18946D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BB0C4C841C90BA92A2A72BA7 /* Pods-Peggle.debug.xcconfig */,
+				8F814961264A38C4B605BE35 /* Pods-Peggle.release.xcconfig */,
+				1E1E616C7BD9C8A00AAEC886 /* Pods-PeggleTests.debug.xcconfig */,
+				C4E486D23BAD4AB714FDED61 /* Pods-PeggleTests.release.xcconfig */,
+				C108F7C5B54823866A12EB3E /* Pods-Peggle-PeggleUITests.debug.xcconfig */,
+				E3BCB5A9985BC273BDA37AEF /* Pods-Peggle-PeggleUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -199,9 +236,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 868CC16523DDF64C00BF603F /* Build configuration list for PBXNativeTarget "Peggle" */;
 			buildPhases = (
+				749A9330FE77812CDB493080 /* [CP] Check Pods Manifest.lock */,
 				868CC13423DDF64900BF603F /* Sources */,
 				868CC13523DDF64900BF603F /* Frameworks */,
 				868CC13623DDF64900BF603F /* Resources */,
+				12D769B5019B245A3B3D38A4 /* [CP] Embed Pods Frameworks */,
+				867D2E7323E6C15D004E8DAA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -216,6 +256,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 868CC16823DDF64C00BF603F /* Build configuration list for PBXNativeTarget "PeggleTests" */;
 			buildPhases = (
+				611503C02B7B93F11DD1ED77 /* [CP] Check Pods Manifest.lock */,
 				868CC14D23DDF64C00BF603F /* Sources */,
 				868CC14E23DDF64C00BF603F /* Frameworks */,
 				868CC14F23DDF64C00BF603F /* Resources */,
@@ -234,9 +275,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 868CC16B23DDF64C00BF603F /* Build configuration list for PBXNativeTarget "PeggleUITests" */;
 			buildPhases = (
+				52776F7A4796EAC83C4EE5A7 /* [CP] Check Pods Manifest.lock */,
 				868CC15823DDF64C00BF603F /* Sources */,
 				868CC15923DDF64C00BF603F /* Frameworks */,
 				868CC15A23DDF64C00BF603F /* Resources */,
+				0A1D20867735981C8C55BBD3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -318,6 +361,126 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A1D20867735981C8C55BBD3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Peggle-PeggleUITests/Pods-Peggle-PeggleUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Peggle-PeggleUITests/Pods-Peggle-PeggleUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Peggle-PeggleUITests/Pods-Peggle-PeggleUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		12D769B5019B245A3B3D38A4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Peggle/Pods-Peggle-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Peggle/Pods-Peggle-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Peggle/Pods-Peggle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52776F7A4796EAC83C4EE5A7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Peggle-PeggleUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		611503C02B7B93F11DD1ED77 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PeggleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		749A9330FE77812CDB493080 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Peggle-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		867D2E7323E6C15D004E8DAA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		868CC13423DDF64900BF603F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -335,7 +498,6 @@
 				868CC13C23DDF64900BF603F /* AppDelegate.swift in Sources */,
 				868CC13E23DDF64900BF603F /* SceneDelegate.swift in Sources */,
 				86AAFE7223E54B6200728E75 /* Settings.swift in Sources */,
-				868CC14623DDF64900BF603F /* Peggle.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +670,7 @@
 		};
 		868CC16623DDF64C00BF603F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB0C4C841C90BA92A2A72BA7 /* Pods-Peggle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -526,6 +689,7 @@
 		};
 		868CC16723DDF64C00BF603F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F814961264A38C4B605BE35 /* Pods-Peggle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -544,8 +708,8 @@
 		};
 		868CC16923DDF64C00BF603F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E1E616C7BD9C8A00AAEC886 /* Pods-PeggleTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GLF5FGPT59;
@@ -566,8 +730,8 @@
 		};
 		868CC16A23DDF64C00BF603F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4E486D23BAD4AB714FDED61 /* Pods-PeggleTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GLF5FGPT59;
@@ -588,6 +752,7 @@
 		};
 		868CC16C23DDF64C00BF603F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C108F7C5B54823866A12EB3E /* Pods-Peggle-PeggleUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -608,6 +773,7 @@
 		};
 		868CC16D23DDF64C00BF603F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3BCB5A9985BC273BDA37AEF /* Pods-Peggle-PeggleUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -666,19 +832,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		868CC14423DDF64900BF603F /* Peggle.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				868CC14523DDF64900BF603F /* Peggle.xcdatamodel */,
-			);
-			currentVersion = 868CC14523DDF64900BF603F /* Peggle.xcdatamodel */;
-			path = Peggle.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 868CC13023DDF64900BF603F /* Project object */;
 }

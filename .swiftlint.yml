@@ -22,7 +22,6 @@ opt_in_rules:
   - expiring_todo
   - explicit_init
   - explicit_self
-  - extension_access_modifier
   - fallthrough
   - fatal_error_message
   - file_name

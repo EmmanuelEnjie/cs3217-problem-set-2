@@ -8,7 +8,7 @@
 
 import CoreGraphics
 
-protocol LevelDelegate {
+protocol LevelDelegate: AnyObject {
     func didAddPeg(_ peg: Peg)
     func didReplacePeg(oldPeg: Peg, newPeg: Peg)
     func didRemovePeg(_ peg: Peg)
@@ -31,11 +31,11 @@ struct Level {
      var updatedAt: Date
      var highScore: Int?
      */
-    var delegate: LevelDelegate?
+    weak var delegate: LevelDelegate?
 
     func hasNoOverlappingPegs(peg: Peg, ignoredPeg: Peg?) -> Bool {
         pegs.filter { ignoredPeg == nil || $0 != ignoredPeg }
-            .allSatisfy { !$0.overlaps(with: peg )}
+            .allSatisfy { !$0.overlaps(with: peg) }
     }
 
     func canAddPeg(_ peg: Peg) -> Bool {

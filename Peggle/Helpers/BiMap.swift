@@ -21,7 +21,6 @@ struct BiMap<Key: Hashable, Value: Hashable> {
         keyToValue.count
     }
 
-
     func getValueForKey(key: Key) -> Value? {
         keyToValue[key]
     }

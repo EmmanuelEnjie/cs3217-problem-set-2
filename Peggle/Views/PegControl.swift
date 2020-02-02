@@ -17,13 +17,14 @@ class PegControl: UIButton {
     required init(center: CGPoint, radius: CGFloat, image: UIImage?) {
         self.radius = radius
         self.image = image
-        super.init(frame:. zero)
+        super.init(frame: .zero)
         self.center = center
 
         reload()
     }
 
     // Not supported: Initialise via storyboard
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) is not supported.")
     }
@@ -40,5 +41,3 @@ class PegControl: UIButton {
         UIBezierPath(ovalIn: self.bounds).contains(point)
     }
 }
-
-

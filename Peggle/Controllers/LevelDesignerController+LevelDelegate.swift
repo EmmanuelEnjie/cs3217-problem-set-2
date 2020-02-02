@@ -14,7 +14,8 @@ extension LevelDesignerController: LevelDelegate {
         let pegControl = PegControl(center: peg.center, radius: peg.radius, image: image)
 
         pegControl.addTarget(self, action: #selector(handlePegTap(pegControl:)), for: .touchUpInside)
-        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handlePegLongPress(_:)))
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self,
+                                                                      action: #selector(handlePegLongPress(_:)))
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePegPan(_:)))
         pegControl.addGestureRecognizer(longPressGestureRecognizer)
         pegControl.addGestureRecognizer(panGestureRecognizer)
@@ -48,4 +49,3 @@ extension LevelDesignerController: LevelDelegate {
         levelNameLabel.text = name
     }
 }
-
