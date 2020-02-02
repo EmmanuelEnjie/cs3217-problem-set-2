@@ -10,13 +10,14 @@ import UIKit
 
 class LevelDesignerController: UIViewController {
     // MARK: Properties
+    @IBOutlet weak var levelNameLabel: UILabel!
     @IBOutlet weak var normalPegTool: UIButton!
     @IBOutlet weak var objectivePegTool: UIButton!
     @IBOutlet weak var deletePegTool: UIButton!
-    @IBOutlet weak var levelNameTextField: UITextField!
     @IBOutlet weak var canvasControl: UIImageView!
 
     var level: Level?
+    var levelNamePrompt: UIAlertController?
     var pegs: BiMap<Peg, PegControl> = BiMap()
     var pegTools: [UIButton] = []
     var selectedPegTool: UIButton? {
@@ -32,16 +33,45 @@ class LevelDesignerController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        levelNameTextField.delegate = self
+
+        level = level ?? Level(name: "", pegs: [])
+        level?.delegate = self
+        // TODO: Add level loading stuff here
+
+        levelNamePrompt = UIAlertController(title: "Please enter a level name.", message: nil, preferredStyle: .alert)
+        let saveAction = UIAlertAction(title: "Save",
+                                       style: .default,
+                                       handler: { _ in
+                                        guard let input = self.levelNamePrompt?.textFields?[0].text else {
+                                            fatalError("The textField cannot be accessed.")
+                                        }
+                                        self.level?.name = input
+        })
+        saveAction.isEnabled = self.level?.name != ""
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        levelNamePrompt?.addTextField { textField in
+            textField.placeholder = "Please enter a level name."
+            textField.text = self.level?.name
+            // Prevents the user from saving if the text field is empty.
+            // Credit: https://gist.github.com/TheCodedSelf/c4f3984dd9fcc015b3ab2f9f60f8ad51
+            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: .main, using: { _ in
+                let textCount = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).count ?? 0
+                let textIsNotEmpty = textCount > 0
+                saveAction.isEnabled = textIsNotEmpty
+            })
+        }
+        levelNamePrompt?.addAction(saveAction)
+        levelNamePrompt?.addAction(cancelAction)
+
         pegTools = [normalPegTool, objectivePegTool, deletePegTool]
         pegTools.forEach { $0.layer.borderColor = Settings.selectedPegToolBorderColor }
 
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(canvasTapped(tapGestureRecognizer:)))
         canvasControl.addGestureRecognizer(tapGestureRecognizer)
 
-        level = level ?? Level(name: "", pegs: [])
-        level?.delegate = self
-        // TODO: Add level loading stuff here
+        levelNameLabel.isUserInteractionEnabled = true
+        let levelNameGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(levelNameTapped(tapGestureRecognizer:)))
+        levelNameLabel.addGestureRecognizer(levelNameGestureRecognizer)
     }
 
     override var prefersStatusBarHidden: Bool {
@@ -61,6 +91,11 @@ class LevelDesignerController: UIViewController {
         }
     }
 
+    @IBAction func resetCanvas(_ sender: UIButton) {
+        canvasControl.subviews.forEach { $0.removeFromSuperview() }
+        level?.removeAllPegs()
+    }
+
     @objc func canvasTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         guard
             selectedPegTool == normalPegTool ||
@@ -76,27 +111,5 @@ class LevelDesignerController: UIViewController {
             type: selectedPegTool == normalPegTool ? .normal : .objective
         )
         level?.addPeg(peg)
-    }
-
-    @IBAction func resetCanvas(_ sender: UIButton) {
-        canvasControl.subviews.forEach { $0.removeFromSuperview() }
-        level?.removeAllPegs()
-    }
-}
-
-extension LevelDesignerController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard
-            let name = textField.text,
-            name != ""
-        else {
-            return false
-        }
-        levelNameTextField.resignFirstResponder()
-        return true
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        level?.name = textField.text!
     }
 }

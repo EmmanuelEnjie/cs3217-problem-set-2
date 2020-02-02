@@ -13,11 +13,16 @@ protocol LevelDelegate {
     func didReplacePeg(oldPeg: Peg, newPeg: Peg)
     func didRemovePeg(_ peg: Peg)
     func didRemoveAllPegs()
+    func didNameChange(_ name: String)
 }
 
 struct Level {
     // MARK: Properties
-    var name: String
+    var name: String {
+        didSet {
+            delegate?.didNameChange(name)
+        }
+    }
     var pegs: Set<Peg>
     /**
      Consider having these

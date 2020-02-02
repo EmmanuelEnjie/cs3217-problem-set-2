@@ -101,19 +101,21 @@
                                     <constraint firstItem="VQo-ql-cYu" firstAttribute="top" secondItem="lJH-d7-L7y" secondAttribute="topMargin" id="yFy-lf-1zh"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ELc-Lf-k7C">
-                                <rect key="frame" x="132" y="60" width="150" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8f4-xH-1Ge">
+                                <rect key="frame" x="8" y="703" width="99.5" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lJH-d7-L7y" secondAttribute="bottom" id="ClL-JS-g5b"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="X9q-VQ-9Qi" secondAttribute="bottom" id="HSq-Ud-TaN"/>
+                            <constraint firstItem="8f4-xH-1Ge" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Lin-1I-QzX"/>
                             <constraint firstItem="X9q-VQ-9Qi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VLL-46-kq9"/>
                             <constraint firstItem="lJH-d7-L7y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Wol-I9-1Bm"/>
+                            <constraint firstItem="lJH-d7-L7y" firstAttribute="top" secondItem="8f4-xH-1Ge" secondAttribute="bottom" constant="8" id="Zug-wW-rxU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X9q-VQ-9Qi" secondAttribute="trailing" id="cW8-RQ-tR3"/>
                             <constraint firstItem="X9q-VQ-9Qi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cXP-Ic-CKl"/>
                             <constraint firstItem="lJH-d7-L7y" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="yqs-4T-YqE"/>
@@ -123,7 +125,7 @@
                     <connections>
                         <outlet property="canvasControl" destination="X9q-VQ-9Qi" id="p5V-No-ss9"/>
                         <outlet property="deletePegTool" destination="b3N-cr-QL6" id="Tug-uy-ng6"/>
-                        <outlet property="levelNameTextField" destination="ELc-Lf-k7C" id="F7y-ck-IGo"/>
+                        <outlet property="levelNameLabel" destination="8f4-xH-1Ge" id="gTG-00-uSq"/>
                         <outlet property="normalPegTool" destination="QMB-X9-By3" id="90A-xh-2kA"/>
                         <outlet property="objectivePegTool" destination="yaZ-uF-kM7" id="dp6-7q-aGr"/>
                     </connections>

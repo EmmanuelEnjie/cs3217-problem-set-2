@@ -43,5 +43,9 @@ extension LevelDesignerController: LevelDelegate {
     func didRemoveAllPegs() {
         pegs = BiMap()
     }
+
+    func didNameChange(_ name: String) {
+        levelNameLabel.text = name
+    }
 }
 

@@ -9,6 +9,13 @@
 import UIKit
 
 extension LevelDesignerController {
+    @objc func levelNameTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        guard let levelNamePrompt = levelNamePrompt else {
+            fatalError("Level name prompt failed to be initialised.")
+        }
+        present(levelNamePrompt, animated: true, completion: nil)
+    }
+
     @objc func handlePegTap(pegControl: PegControl) {
         guard let peg = pegs[value: pegControl] else {
             fatalError("pegControl is not found in pegs")
