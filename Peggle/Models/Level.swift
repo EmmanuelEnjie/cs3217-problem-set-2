@@ -57,12 +57,16 @@ struct Level {
      */
     @discardableResult
     mutating func removePeg(_ peg: Peg) -> Peg? {
-        delegate?.didRemovePeg(peg)
-        return pegs.remove(peg)
+        let removedPeg = pegs.remove(peg)
+        if removedPeg != nil {
+            delegate?.didRemovePeg(peg)
+        }
+        return removedPeg
     }
 
     mutating func removeAllPegs() {
         pegs = []
+        delegate?.didRemoveAllPegs()
     }
 
     @discardableResult
