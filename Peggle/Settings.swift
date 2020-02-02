@@ -10,6 +10,8 @@ import UIKit
 
 // Global level settings for the `Peggle` application.
 final class Settings {
+    static let defaultLevelName: String = "Level Name"
+
     static let selectedPegToolBorderWidth: CGFloat = 2
     static let selectedPegToolBorderColor: CGColor = UIColor.red.cgColor
 

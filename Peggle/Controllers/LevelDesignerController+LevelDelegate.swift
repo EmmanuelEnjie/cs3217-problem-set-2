@@ -42,6 +42,10 @@ extension LevelDesignerController: LevelDelegate {
     }
 
     func didRemoveAllPegs() {
+        levelNameLabel.text = Settings.defaultLevelName
+        pegs.values.forEach { pegControl in
+            pegControl.removeFromSuperview()
+        }
         pegs = BiMap()
     }
 

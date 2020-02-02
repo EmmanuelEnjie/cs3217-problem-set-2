@@ -41,6 +41,8 @@ class LevelDesignerController: UIViewController {
         level?.delegate = self
         // TODO: Add level loading stuff here
 
+        levelNameLabel.text = Settings.defaultLevelName
+
         levelNamePrompt = UIAlertController(title: "Please enter a level name.", message: nil, preferredStyle: .alert)
         let saveAction = UIAlertAction(title: "Save",
                                        style: .default,
@@ -103,7 +105,6 @@ class LevelDesignerController: UIViewController {
     }
 
     @IBAction private func resetCanvas(_ sender: UIButton) {
-        canvasControl.subviews.forEach { $0.removeFromSuperview() }
         level?.removeAllPegs()
     }
 

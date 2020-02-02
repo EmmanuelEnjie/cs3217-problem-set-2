@@ -13,6 +13,16 @@ struct BiMap<Key: Hashable, Value: Hashable> {
     private var keyToValue: [Key: Value] = [:]
     private var valueToKey: [Value: Key] = [:]
 
+    /// - returns: A collection containing just the keys of the bimap.
+    var keys: Dictionary<Key, Value>.Keys {
+        keyToValue.keys
+    }
+
+    /// - returns: A collection containing just the values of the bimap.
+    var values: Dictionary<Key, Value>.Values {
+        keyToValue.values
+    }
+
     var isEmpty: Bool {
         keyToValue.isEmpty
     }
