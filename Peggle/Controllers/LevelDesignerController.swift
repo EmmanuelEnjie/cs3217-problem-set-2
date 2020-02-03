@@ -87,4 +87,31 @@ class LevelDesignerController: UIViewController {
     @IBAction private func resetCanvas(_ sender: UIButton) {
         level?.removeAllPegs()
     }
+
+    @IBAction private func saveLevel(_ sender: Any) {
+        guard let level = level else {
+            fatalError("Level could not be accessed.")
+        }
+        do {
+            let realm = try Realm()
+            try realm.write {
+                let levelData = self.levelData ?? LevelData()
+                if self.levelData == nil {
+                    realm.add(levelData)
+                    self.levelData = levelData
+                }
+                let pegDatas = pegs.keys.map { PegData(peg: $0) }
+                levelData.name = level.name
+                levelData.pegs.removeAll()
+                levelData.pegs.append(objectsIn: pegDatas)
+            }
+        } catch {
+            Dialogs.showAlert(in: self,
+                              title: nil,
+                              message: "An unexpected error occured when saving the level. Please try again.")
+        }
+    }
+
+    @IBAction private func loadLevel(_ sender: Any) {
+    }
 }

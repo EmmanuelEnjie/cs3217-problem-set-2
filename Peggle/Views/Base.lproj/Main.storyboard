@@ -75,10 +75,16 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nhj-JK-8UR">
                                                 <rect key="frame" x="62" y="0.0" width="40" height="30"/>
                                                 <state key="normal" title="LOAD"/>
+                                                <connections>
+                                                    <action selector="loadLevel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3pI-4D-K3H"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbw-w7-4Jo">
                                                 <rect key="frame" x="118" y="0.0" width="37" height="30"/>
                                                 <state key="normal" title="SAVE"/>
+                                                <connections>
+                                                    <action selector="saveLevel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c1A-BJ-DS8"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fQ-FL-HYD">
                                                 <rect key="frame" x="171" y="0.0" width="36" height="30"/>

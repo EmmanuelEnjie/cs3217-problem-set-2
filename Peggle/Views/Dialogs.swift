@@ -9,6 +9,16 @@
 import UIKit
 
 struct Dialogs {
+    /// Displays a dialog with a message.
+    /// - Parameters:
+    ///     - viewController: The view controller used to present the prompt.
+    ///     - title: The text shown as the title of the prompt.
+    ///     - message: The text shown in the body of the prompt.
+    static func showAlert(in viewController: UIViewController, title: String?, message: String?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        viewController.present(alert, animated: true)
+    }
+
     // swiftlint:disable function_parameter_count
     /// Displays a dialog with a message prompting the user to input some text.
     /// - Parameters:
