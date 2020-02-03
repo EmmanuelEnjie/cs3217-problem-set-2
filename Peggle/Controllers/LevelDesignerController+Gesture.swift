@@ -10,10 +10,30 @@ import UIKit
 
 extension LevelDesignerController {
     @objc func levelNameTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        guard let levelNamePrompt = levelNamePrompt else {
-            fatalError("Level name prompt failed to be initialised.")
+        Dialogs.showPrompt(in: self,
+                           title: "Level Name",
+                           message: "Please enter a level name.",
+                           confirmActionTitle: "Save",
+                           placeholder: "Please enter a level name",
+                           initialValue: level?.name ?? "",
+                           confirmHandler: { input in
+                             self.level?.name = input
+        })
+    }
+
+    @objc func canvasTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        guard
+            selectedPegTool == normalPegTool ||
+            selectedPegTool == objectivePegTool
+        else {
+            return
         }
-        present(levelNamePrompt, animated: true, completion: nil)
+
+        let tapLocation = tapGestureRecognizer.location(in: canvasControl)
+        let peg = Peg(center: tapLocation,
+                      radius: Settings.defaultPegRadius,
+                      type: selectedPegTool == normalPegTool ? .normal : .objective)
+        level?.addPeg(peg)
     }
 
     @objc func handlePegTap(pegControl: PegControl) {
