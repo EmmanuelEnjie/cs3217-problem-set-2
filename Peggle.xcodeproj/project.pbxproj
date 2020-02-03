@@ -23,6 +23,12 @@
 		86929AC123E3042F004E76DF /* CGPoint+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86929AC023E3042F004E76DF /* CGPoint+Hashable.swift */; };
 		8693ADF123DF5A3E00776F93 /* PegControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693ADF023DF5A3E00776F93 /* PegControl.swift */; };
 		8693ADF323E1AE5900776F93 /* CGPoint+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693ADF223E1AE5900776F93 /* CGPoint+Distance.swift */; };
+		869A4BDC23E70B9B00D14975 /* PegData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A4BDB23E70B9B00D14975 /* PegData.swift */; };
+		869A4BDE23E70BA100D14975 /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A4BDD23E70BA100D14975 /* LevelData.swift */; };
+		869A4BE023E70D2F00D14975 /* LevelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A4BDF23E70D2F00D14975 /* LevelDelegate.swift */; };
+		869A4BE423E74EB300D14975 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A4BE323E74EB300D14975 /* Store.swift */; };
+		869A4BE623E82A6B00D14975 /* Dialogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A4BE523E82A6B00D14975 /* Dialogs.swift */; };
+		869A4BE823E83D5100D14975 /* PegType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A4BE723E83D5100D14975 /* PegType.swift */; };
 		86AAFE7223E54B6200728E75 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAFE7123E54B6200728E75 /* Settings.swift */; };
 		86AAFE7423E580B400728E75 /* LevelDesignerController+LevelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAFE7323E580B400728E75 /* LevelDesignerController+LevelDelegate.swift */; };
 		86AAFE7623E5884D00728E75 /* LevelDesignerController+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAFE7523E5884D00728E75 /* LevelDesignerController+Gesture.swift */; };
@@ -71,6 +77,12 @@
 		86929AC023E3042F004E76DF /* CGPoint+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Hashable.swift"; sourceTree = "<group>"; };
 		8693ADF023DF5A3E00776F93 /* PegControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PegControl.swift; sourceTree = "<group>"; };
 		8693ADF223E1AE5900776F93 /* CGPoint+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Distance.swift"; sourceTree = "<group>"; };
+		869A4BDB23E70B9B00D14975 /* PegData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PegData.swift; sourceTree = "<group>"; };
+		869A4BDD23E70BA100D14975 /* LevelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
+		869A4BDF23E70D2F00D14975 /* LevelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelDelegate.swift; sourceTree = "<group>"; };
+		869A4BE323E74EB300D14975 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		869A4BE523E82A6B00D14975 /* Dialogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Dialogs.swift; path = Peggle/Views/Dialogs.swift; sourceTree = SOURCE_ROOT; };
+		869A4BE723E83D5100D14975 /* PegType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PegType.swift; sourceTree = "<group>"; };
 		86AAFE7123E54B6200728E75 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		86AAFE7323E580B400728E75 /* LevelDesignerController+LevelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LevelDesignerController+LevelDelegate.swift"; sourceTree = "<group>"; };
 		86AAFE7523E5884D00728E75 /* LevelDesignerController+Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LevelDesignerController+Gesture.swift"; sourceTree = "<group>"; };
@@ -181,7 +193,12 @@
 			isa = PBXGroup;
 			children = (
 				8690BC4B23DF0B5B0077F6E6 /* Peg.swift */,
+				869A4BE723E83D5100D14975 /* PegType.swift */,
 				8690BC4E23DF0BA50077F6E6 /* Level.swift */,
+				869A4BDF23E70D2F00D14975 /* LevelDelegate.swift */,
+				869A4BDB23E70B9B00D14975 /* PegData.swift */,
+				869A4BDD23E70BA100D14975 /* LevelData.swift */,
+				869A4BE323E74EB300D14975 /* Store.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -199,6 +216,7 @@
 		86929ACE23E3D8D0004E76DF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				869A4BE523E82A6B00D14975 /* Dialogs.swift */,
 				8693ADF023DF5A3E00776F93 /* PegControl.swift */,
 				868CC14123DDF64900BF603F /* Main.storyboard */,
 				868CC14923DDF64C00BF603F /* LaunchScreen.storyboard */,
@@ -486,6 +504,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				869A4BE823E83D5100D14975 /* PegType.swift in Sources */,
 				8693ADF123DF5A3E00776F93 /* PegControl.swift in Sources */,
 				86AAFE7623E5884D00728E75 /* LevelDesignerController+Gesture.swift in Sources */,
 				8690BC4F23DF0BA50077F6E6 /* Level.swift in Sources */,
@@ -493,11 +512,16 @@
 				8693ADF323E1AE5900776F93 /* CGPoint+Distance.swift in Sources */,
 				86929AC123E3042F004E76DF /* CGPoint+Hashable.swift in Sources */,
 				86AAFE7423E580B400728E75 /* LevelDesignerController+LevelDelegate.swift in Sources */,
+				869A4BDC23E70B9B00D14975 /* PegData.swift in Sources */,
+				869A4BE623E82A6B00D14975 /* Dialogs.swift in Sources */,
+				869A4BDE23E70BA100D14975 /* LevelData.swift in Sources */,
 				86EC417223E4954F00C208A5 /* BiMap.swift in Sources */,
+				869A4BE423E74EB300D14975 /* Store.swift in Sources */,
 				868CC14023DDF64900BF603F /* LevelDesignerController.swift in Sources */,
 				868CC13C23DDF64900BF603F /* AppDelegate.swift in Sources */,
 				868CC13E23DDF64900BF603F /* SceneDelegate.swift in Sources */,
 				86AAFE7223E54B6200728E75 /* Settings.swift in Sources */,
+				869A4BE023E70D2F00D14975 /* LevelDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

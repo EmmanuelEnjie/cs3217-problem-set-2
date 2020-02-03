@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class LevelDesignerController: UIViewController {
     // MARK: Properties
@@ -19,8 +20,7 @@ class LevelDesignerController: UIViewController {
     // swiftlint:enable private_outlet
 
     var level: Level?
-    var levelNamePrompt: UIAlertController?
-    var levelNamePromptObserver: NSObjectProtocol?
+    var levelData: LevelData?
     var pegs: BiMap<Peg, PegControl> = BiMap()
     var pegTools: [UIButton] = []
     var selectedPegTool: UIButton? {
@@ -37,48 +37,28 @@ class LevelDesignerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        level = level ?? Level(name: "", pegs: [])
-        level?.delegate = self
-        // TODO: Add level loading stuff here
-
-        levelNameLabel.text = Settings.defaultLevelName
-
-        levelNamePrompt = UIAlertController(title: "Please enter a level name.", message: nil, preferredStyle: .alert)
-        let saveAction = UIAlertAction(title: "Save",
-                                       style: .default,
-                                       handler: { _ in
-                                        guard let input = self.levelNamePrompt?.textFields?[0].text else {
-                                            fatalError("The textField cannot be accessed.")
-                                        }
-                                        self.level?.name = input
-        })
-        saveAction.isEnabled = self.level?.name.isEmpty ?? false
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        levelNamePrompt?.addTextField { textField in
-            textField.placeholder = "Please enter a level name."
-            textField.text = self.level?.name
-            // Prevents the user from saving if the text field is empty.
-            // Credit: https://gist.github.com/TheCodedSelf/c4f3984dd9fcc015b3ab2f9f60f8ad51
-            self.levelNamePromptObserver = NotificationCenter.default.addObserver(
-                forName: UITextField.textDidChangeNotification,
-                object: textField,
-                queue: .main,
-                using: { _ in
-                    let textCount = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).count ?? 0
-                    let textIsNotEmpty = textCount > 0
-                    saveAction.isEnabled = textIsNotEmpty
-                }
-            )
+        // Load pegs from store
+        if let levelData = Store.shared.realm.objects(LevelData.self).first {
+            let pegs = levelData.pegs.map { pegData in
+                Peg(pegData: pegData)
+            }
+            level = Level(name: levelData.name, pegs: Set(), delegate: self)
+            pegs.forEach { peg in
+                level?.addPeg(peg)
+            }
+            self.levelData = levelData
+        } else {
+            level = Level(name: Settings.defaultLevelName, pegs: Set(), delegate: self)
         }
-        levelNamePrompt?.addAction(saveAction)
-        levelNamePrompt?.addAction(cancelAction)
+        levelNameLabel.text = level?.name
 
+        // Set up tools
         pegTools = [normalPegTool, objectivePegTool, deletePegTool]
         pegTools.forEach { $0.layer.borderColor = Settings.selectedPegToolBorderColor }
 
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self,
-                                                          action: #selector(canvasTapped(tapGestureRecognizer:)))
-        canvasControl.addGestureRecognizer(tapGestureRecognizer)
+        let canvasGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                             action: #selector(canvasTapped(tapGestureRecognizer:)))
+        canvasControl.addGestureRecognizer(canvasGestureRecognizer)
 
         levelNameLabel.isUserInteractionEnabled = true
         let levelNameGestureRecognizer =
@@ -106,22 +86,5 @@ class LevelDesignerController: UIViewController {
 
     @IBAction private func resetCanvas(_ sender: UIButton) {
         level?.removeAllPegs()
-    }
-
-    @objc func canvasTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        guard
-            selectedPegTool == normalPegTool ||
-            selectedPegTool == objectivePegTool
-        else {
-            return
-        }
-
-        let location = tapGestureRecognizer.location(in: canvasControl)
-        let peg = Peg(
-            center: CGPoint(x: location.x, y: location.y),
-            radius: Settings.defaultPegRadius,
-            type: selectedPegTool == normalPegTool ? .normal : .objective
-        )
-        level?.addPeg(peg)
     }
 }
