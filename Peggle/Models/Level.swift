@@ -8,14 +8,6 @@
 
 import CoreGraphics
 
-protocol LevelDelegate: AnyObject {
-    func didAddPeg(_ peg: Peg)
-    func didReplacePeg(oldPeg: Peg, newPeg: Peg)
-    func didRemovePeg(_ peg: Peg)
-    func didRemoveAllPegs()
-    func didNameChange(_ name: String)
-}
-
 struct Level {
     // MARK: Properties
     var name: String {
