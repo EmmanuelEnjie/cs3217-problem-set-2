@@ -8,7 +8,7 @@
 
 import RealmSwift
 
-/// The `Store` represents `Peggle`'s persisted state.
+/// The `Store` represents the persisted state of Peggle.
 struct Store {
     static let shared = Store().realm
     private var realm: Realm
@@ -25,33 +25,27 @@ struct Store {
         shared.objects(LevelData.self)
     }
 
-    static func saveLevelData(_ levelData: LevelData) throws {
+    /// Saves a `LevelData` into the store.
+    /// - Parameter _: The level data to be saved.
+    @discardableResult
+    static func saveLevelData(_ levelData: LevelData) throws -> LevelData {
         try shared.write {
             shared.add(levelData)
         }
+        return levelData
     }
 
+    /// Removes a `LevelData` from the store.
+    /// - Parameter _: The level data to be removed.
     static func removeLevelData(_ levelData: LevelData) throws {
         try shared.write {
             shared.delete(levelData)
         }
     }
 
-    /// Saves a new level.
-    static func saveLevel(_ level: Level) throws -> LevelData {
-        let levelData = LevelData()
-        try shared.write {
-            shared.add(levelData)
-            levelData.name = level.name
-            let pegDatas = level.pegs.map { PegData(peg: $0) }
-            levelData.pegs.append(objectsIn: pegDatas)
-        }
-        return levelData
-    }
-
     static func updateLevelData(_ levelData: LevelData, level: Level) throws -> LevelData {
         guard !levelData.isInvalidated else {
-            return try saveLevel(level)
+            return try saveLevelData(levelData)
         }
 
         try shared.write {

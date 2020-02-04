@@ -10,7 +10,6 @@ import UIKit
 import RealmSwift
 
 class LevelLoaderController: UITableViewController {
-    var levels = Store.shared.objects(LevelData.self)
     var levelsObserverToken: NotificationToken?
 
     override var prefersStatusBarHidden: Bool {
@@ -22,13 +21,14 @@ class LevelLoaderController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        levels.count
+        Store.levelDatas.count
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        levelsObserverToken = levels.observe { [weak self] (changes: RealmCollectionChange) in
+        // Observes the Store's level
+        levelsObserverToken = Store.levelDatas.observe { [weak self] (changes: RealmCollectionChange) in
             guard let tableView = self?.tableView else {
                 return
             }
@@ -62,7 +62,7 @@ class LevelLoaderController: UITableViewController {
         else {
             fatalError("The dequeued cell is not an instance of \(cellIdentifier).")
         }
-        let level = levels[indexPath.row]
+        let level = Store.levelDatas[indexPath.row]
 
         cell.levelNameLabel.text = level.name
 
@@ -98,7 +98,7 @@ class LevelLoaderController: UITableViewController {
                             forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             do {
-                let levelData = levels[indexPath.row]
+                let levelData = Store.levelDatas[indexPath.row]
                 try Store.removeLevelData(levelData)
             } catch {
                 Dialogs.showAlert(in: self,
@@ -118,7 +118,7 @@ class LevelLoaderController: UITableViewController {
         else {
             return
         }
-        let levelData = levels[row]
+        let levelData = Store.levelDatas[row]
         LevelDesigner.loadLevelData(levelData, levelDelegate: nil)
     }
 }

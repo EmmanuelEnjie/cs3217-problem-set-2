@@ -22,7 +22,8 @@ struct LevelDesigner {
         if let levelData = self.levelData {
             self.levelData = try Store.updateLevelData(levelData, level: level)
         } else {
-            self.levelData = try Store.saveLevel(level)
+            let levelData = LevelData(level: level)
+            self.levelData = try Store.saveLevelData(levelData)
         }
     }
 
