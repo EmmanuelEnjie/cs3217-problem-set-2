@@ -8,14 +8,6 @@
 
 import CoreGraphics
 
-protocol LevelDelegate: AnyObject {
-    func didAddPeg(_ peg: Peg)
-    func didReplacePeg(oldPeg: Peg, newPeg: Peg)
-    func didRemovePeg(_ peg: Peg)
-    func didRemoveAllPegs()
-    func didNameChange(_ name: String)
-}
-
 struct Level {
     // MARK: Properties
     var name: String {
@@ -24,14 +16,18 @@ struct Level {
         }
     }
     var pegs: Set<Peg>
-    /**
-     Consider having these
-     var author: String
-     var createdAt: Date
-     var updatedAt: Date
-     var highScore: Int?
-     */
     weak var delegate: LevelDelegate?
+
+    init(name: String, pegs: Set<Peg>, delegate: LevelDelegate?) {
+        self.name = name
+        self.pegs = pegs
+        self.delegate = delegate
+
+        delegate?.didNameChange(name)
+        pegs.forEach { peg in
+            delegate?.didAddPeg(peg)
+        }
+    }
 
     func hasNoOverlappingPegs(peg: Peg, ignoredPeg: Peg?) -> Bool {
         pegs.filter { ignoredPeg == nil || $0 != ignoredPeg }

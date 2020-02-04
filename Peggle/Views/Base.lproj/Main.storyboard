@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0rs-ga-gkC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="X9q-VQ-9Qi">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJH-d7-L7y">
                                 <rect key="frame" x="0.0" y="734" width="414" height="128"/>
@@ -75,10 +75,16 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nhj-JK-8UR">
                                                 <rect key="frame" x="62" y="0.0" width="40" height="30"/>
                                                 <state key="normal" title="LOAD"/>
+                                                <connections>
+                                                    <segue destination="eCb-kz-U8V" kind="show" identifier="" id="qSa-VN-4xl"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbw-w7-4Jo">
                                                 <rect key="frame" x="118" y="0.0" width="37" height="30"/>
                                                 <state key="normal" title="SAVE"/>
+                                                <connections>
+                                                    <action selector="saveLevel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c1A-BJ-DS8"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fQ-FL-HYD">
                                                 <rect key="frame" x="171" y="0.0" width="36" height="30"/>
@@ -112,6 +118,7 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lJH-d7-L7y" secondAttribute="bottom" id="ClL-JS-g5b"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="X9q-VQ-9Qi" secondAttribute="bottom" id="HSq-Ud-TaN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8f4-xH-1Ge" secondAttribute="trailing" symbolic="YES" id="IXE-HR-kfv"/>
                             <constraint firstItem="8f4-xH-1Ge" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Lin-1I-QzX"/>
                             <constraint firstItem="X9q-VQ-9Qi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VLL-46-kq9"/>
                             <constraint firstItem="lJH-d7-L7y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Wol-I9-1Bm"/>
@@ -122,6 +129,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="2LI-4s-ikX"/>
                     <connections>
                         <outlet property="canvasControl" destination="X9q-VQ-9Qi" id="p5V-No-ss9"/>
                         <outlet property="deletePegTool" destination="b3N-cr-QL6" id="Tug-uy-ng6"/>
@@ -132,7 +140,78 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+            <point key="canvasLocation" x="1039" y="138"/>
+        </scene>
+        <!--Levels-->
+        <scene sceneID="TLE-xE-oVR">
+            <objects>
+                <tableViewController id="eCb-kz-U8V" customClass="LevelLoaderController" customModule="Peggle" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wGH-kg-jqx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LevelTableViewCell" id="7dD-L1-YPm" customClass="LevelTableViewCell" customModule="Peggle" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7dD-L1-YPm" id="rzn-wf-Zx1">
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4d-5X-sUs">
+                                            <rect key="frame" x="20" y="11" width="355" height="21.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="e4d-5X-sUs" firstAttribute="top" secondItem="rzn-wf-Zx1" secondAttribute="topMargin" id="3vX-2T-dlx"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="e4d-5X-sUs" secondAttribute="trailing" id="77b-nT-5yh"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="e4d-5X-sUs" secondAttribute="bottom" id="Vv1-BY-MGb"/>
+                                        <constraint firstItem="e4d-5X-sUs" firstAttribute="leading" secondItem="rzn-wf-Zx1" secondAttribute="leadingMargin" id="x9Q-ks-ech"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="levelNameLabel" destination="e4d-5X-sUs" id="Q5x-Z7-Ffn"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="iNQ-ia-5Zz"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eCb-kz-U8V" id="7Fs-0J-l5p"/>
+                            <outlet property="delegate" destination="eCb-kz-U8V" id="eRP-fD-jxe"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Levels" id="uDp-Gf-fo6">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="YJc-Cv-cZe">
+                            <connections>
+                                <action selector="createLevel:" destination="eCb-kz-U8V" id="rD1-8J-UbO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="10g-Yu-3dS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1915.9420289855075" y="137.94642857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="u3z-Yq-Opk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0rs-ga-gkC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zuk-1D-tTR">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cUc-5J-ejI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hFM-vx-5IM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="176.81159420289856" y="137.94642857142856"/>
         </scene>
     </scenes>
     <resources>
@@ -141,4 +220,7 @@
         <image name="peg-orange" width="128" height="128"/>
         <image name="xmark.circle" catalog="system" width="64" height="60"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="cUc-5J-ejI"/>
+    </inferredMetricsTieBreakers>
 </document>
