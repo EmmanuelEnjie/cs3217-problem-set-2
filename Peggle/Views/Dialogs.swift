@@ -9,6 +9,8 @@
 import UIKit
 
 struct Dialogs {
+    // swiftlint:disable function_parameter_count
+
     /// Displays a dialog with a message.
     /// - Parameters:
     ///     - in: The view controller used to present the prompt.
@@ -24,7 +26,6 @@ struct Dialogs {
         viewController.present(alert, animated: true)
     }
 
-    // swiftlint:disable function_parameter_count
     /// Displays a dialog with a message prompting the user to input some text.
     /// - Parameters:
     ///     - in: The view controller used to present the prompt.
@@ -79,5 +80,4 @@ struct Dialogs {
 
         viewController.present(prompt, animated: true, completion: nil)
     }
-    // swiftlint:enable function_parameter_count
 }

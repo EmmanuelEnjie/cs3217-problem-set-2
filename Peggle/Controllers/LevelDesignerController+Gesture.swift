@@ -15,9 +15,9 @@ extension LevelDesignerController {
                            message: "Please enter a level name.",
                            confirmActionTitle: "Save",
                            placeholder: "Please enter a level name",
-                           initialValue: level?.name ?? "",
+                           initialValue: LevelDesigner.level?.name ?? "",
                            confirmHandler: { input in
-                             self.level?.name = input
+                             LevelDesigner.level?.name = input
         })
     }
 
@@ -33,7 +33,7 @@ extension LevelDesignerController {
         let peg = Peg(center: tapLocation,
                       radius: Settings.defaultPegRadius,
                       type: selectedPegTool == normalPegTool ? .normal : .objective)
-        level?.addPeg(peg)
+        LevelDesigner.addPeg(peg)
     }
 
     @objc func handlePegTap(pegControl: PegControl) {
@@ -45,15 +45,15 @@ extension LevelDesignerController {
         case normalPegTool:
             var newPeg = peg
             newPeg.type = .normal
-            level?.replacePeg(peg, with: newPeg)
+            LevelDesigner.replacePeg(peg, with: newPeg)
 
         case objectivePegTool:
             var newPeg = peg
             newPeg.type = .objective
-            level?.replacePeg(peg, with: newPeg)
+            LevelDesigner.replacePeg(peg, with: newPeg)
 
         case deletePegTool:
-            level?.removePeg(peg)
+            LevelDesigner.removePeg(peg)
 
         default:
             ()
@@ -69,7 +69,7 @@ extension LevelDesignerController {
         else {
             return
         }
-        level?.removePeg(peg)
+        LevelDesigner.removePeg(peg)
     }
 
     @objc func handlePegPan(_ gestureRecognizer: UIPanGestureRecognizer) {
@@ -85,6 +85,6 @@ extension LevelDesignerController {
         let panCenter = gestureRecognizer.location(in: canvasControl)
         var newPeg = peg
         newPeg.center = panCenter
-        level?.replacePeg(peg, with: newPeg)
+        LevelDesigner.replacePeg(peg, with: newPeg)
     }
 }

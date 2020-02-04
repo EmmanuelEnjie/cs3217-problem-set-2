@@ -8,6 +8,9 @@
 
 import CoreGraphics
 
+/**
+ `Peg` is an abstract data structure that represents a peg in Peggle.
+*/
 struct Peg {
     var center: CGPoint
     var radius: CGFloat
@@ -20,15 +23,6 @@ struct Peg {
     init(center: CGPoint, radius: CGFloat, type: PegType) {
         self.center = center
         self.radius = radius
-        self.type = type
-    }
-
-    init(pegData: PegData) {
-        guard let type = PegType(rawValue: pegData.type) else {
-            fatalError("An invalid PegType was provided.")
-        }
-        self.center = CGPoint(x: pegData.centerX, y: pegData.centerY)
-        self.radius = CGFloat(pegData.radius)
         self.type = type
     }
 }

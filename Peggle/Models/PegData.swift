@@ -8,6 +8,10 @@
 
 import RealmSwift
 
+/**
+ `PegData` represents a Realm model object for the abstract data structure `Peg`.
+ It is intended to be used for persisting `Peg`s.
+ */
 class PegData: Object {
     override class func primaryKey() -> String? {
         "id"
@@ -21,10 +25,17 @@ class PegData: Object {
     @objc dynamic var radius = Double()
     @objc dynamic var type: Int = 0
 
+    /// Constructs an empty `PegData`.
     required init() {
         super.init()
     }
 
+    /// Constructs a new `PegData`.
+    /// - Parameters:
+    ///     - centerX: The x position of the peg's center.
+    ///     - centerY: The y position of the peg's center.
+    ///     - radius: The radius of the peg.
+    ///     - type: An integer representing the peg's `PegType`.
     init(centerX: Double, centerY: Double, radius: Double, type: Int) {
         guard PegType(rawValue: type) != nil else {
             fatalError("An incorrect PegType was provided.")
@@ -36,6 +47,8 @@ class PegData: Object {
         self.type = type
     }
 
+    /// Constructs a new `PegData`.
+    /// - Parameter peg: A peg abstract data structure.
     convenience init(peg: Peg) {
         self.init(centerX: Double(peg.center.x),
                   centerY: Double(peg.center.y),

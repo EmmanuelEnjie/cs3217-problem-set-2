@@ -17,6 +17,14 @@ class LevelLoaderController: UITableViewController {
         true
     }
 
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        levels.count
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,25 +45,14 @@ class LevelLoaderController: UITableViewController {
                                      with: .automatic)
                 tableView.endUpdates()
             case .error(let error):
-                // An error occurred while opening the Realm file on the background worker thread
-                fatalError("\(error)")
+                fatalError("An error occured while opening the Realm file on the background worker thread: \(error)")
             }
         }
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//         self.navigationItem.rightBarButtonItem = self.editButtonItem
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        levels.count
-    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "LevelTableViewCell"
@@ -75,12 +72,9 @@ class LevelLoaderController: UITableViewController {
     @IBAction private func createLevel(_ sender: UIBarButtonItem) {
         let createHandler: (String) -> Void = { input in
             do {
-                let level = LevelData()
-                level.name = input
-                let realm = try Realm()
-                try realm.write {
-                    realm.add(level)
-                }
+                let levelData = LevelData()
+                levelData.name = input
+                try Store.saveLevelData(levelData)
             } catch {
                 Dialogs.showAlert(in: self,
                                   title: nil,
@@ -99,19 +93,13 @@ class LevelLoaderController: UITableViewController {
         )
     }
 
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-    }
-
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle,
                             forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             do {
-                let realm = try Realm()
-                try realm.write {
-                    realm.delete(levels[indexPath.row])
-                }
+                let levelData = levels[indexPath.row]
+                try Store.removeLevelData(levelData)
             } catch {
                 Dialogs.showAlert(in: self,
                                   title: nil,
@@ -123,18 +111,14 @@ class LevelLoaderController: UITableViewController {
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
         guard
             let row = tableView.indexPathForSelectedRow?.row,
-            let levelDesignerController = segue.destination as? LevelDesignerController
+            segue.destination as? LevelDesignerController != nil
         else {
             return
         }
         let levelData = levels[row]
-        levelDesignerController.levelData = levelData
+        LevelDesigner.loadLevelData(levelData, levelDelegate: nil)
     }
-
 }

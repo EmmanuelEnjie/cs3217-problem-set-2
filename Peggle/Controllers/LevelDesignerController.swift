@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class LevelDesignerController: UIViewController {
     // MARK: Properties
@@ -18,8 +17,6 @@ class LevelDesignerController: UIViewController {
     @IBOutlet var deletePegTool: UIButton!
     @IBOutlet var canvasControl: UIImageView!
     // swiftlint:enable private_outlet
-    var level: Level?
-    var levelData: LevelData?
     var pegs: BiMap<Peg, PegControl> = BiMap()
     var pegTools: [UIButton] = []
     var selectedPegTool: UIButton? {
@@ -50,15 +47,7 @@ class LevelDesignerController: UIViewController {
                                    action: #selector(levelNameTapped(tapGestureRecognizer:)))
         levelNameLabel.addGestureRecognizer(levelNameGestureRecognizer)
 
-        // Load level
-        if let levelData = levelData {
-            let pegs = levelData.pegs.map { pegData in
-                Peg(pegData: pegData)
-            }
-            level = Level(name: levelData.name, pegs: Set(pegs), delegate: self)
-        } else {
-            level = Level(name: Settings.defaultLevelName, pegs: Set(), delegate: self)
-        }
+        LevelDesigner.setup(levelDelegate: self)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -84,27 +73,12 @@ class LevelDesignerController: UIViewController {
     }
 
     @IBAction private func resetCanvas(_ sender: UIButton) {
-        level?.removeAllPegs()
+        LevelDesigner.removeAllPegs()
     }
 
     @IBAction private func saveLevel(_ sender: Any) {
-        guard let level = level else {
-            fatalError("Level could not be accessed.")
-        }
         do {
-            let realm = try Realm()
-            try realm.write {
-                let levelData = self.levelData ?? LevelData()
-                if self.levelData == nil {
-                    realm.add(levelData)
-                    self.levelData = levelData
-                }
-
-                let pegDatas = pegs.keys.map { PegData(peg: $0) }
-                levelData.name = level.name
-                levelData.pegs.removeAll()
-                levelData.pegs.append(objectsIn: pegDatas)
-            }
+            try LevelDesigner.saveLevelData()
         } catch {
             Dialogs.showAlert(in: self,
                               title: nil,

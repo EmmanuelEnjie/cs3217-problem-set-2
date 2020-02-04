@@ -6,9 +6,12 @@
 //  Copyright © 2020 Shawn Koh. All rights reserved.
 //
 
-// A bidirectional map backed by two hash tables.
-// This implementation does not allow null keys and values.
-// Loosely based on https://guava.dev/releases/23.0/api/docs/com/google/common/collect/HashBiMap.html
+/**
+ A `BiMap` is a bidirectional map backed by two hash tables.
+
+ This implementation does not allow null keys and values.
+ Loosely based on https://github.com/mauriciosantos/Buckets-Swift/blob/master/Source/Bimap.swift
+ */
 struct BiMap<Key: Hashable, Value: Hashable> {
     private var keyToValue: [Key: Value] = [:]
     private var valueToKey: [Value: Key] = [:]

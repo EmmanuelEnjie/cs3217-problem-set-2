@@ -8,6 +8,9 @@
 
 import CoreGraphics
 
+/**
+ `Level` is an abstract data structure that represents a game level in Peggle.
+ */
 struct Level {
     // MARK: Properties
     var name: String {
