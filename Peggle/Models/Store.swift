@@ -9,8 +9,8 @@
 import RealmSwift
 
 struct Store {
-    static let shared = Store()
-    var realm: Realm
+    static let shared = Store().realm
+    private var realm: Realm
 
     private init() {
         do {

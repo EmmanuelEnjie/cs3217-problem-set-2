@@ -11,20 +11,26 @@ import UIKit
 struct Dialogs {
     /// Displays a dialog with a message.
     /// - Parameters:
-    ///     - viewController: The view controller used to present the prompt.
+    ///     - in: The view controller used to present the prompt.
     ///     - title: The text shown as the title of the prompt.
     ///     - message: The text shown in the body of the prompt.
-    static func showAlert(in viewController: UIViewController, title: String?, message: String?) {
+    static func showAlert(in viewController: UIViewController,
+                          title: String?,
+                          message: String?,
+                          dismissActionTitle: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: dismissActionTitle, style: .default)
+        alert.addAction(dismissAction)
         viewController.present(alert, animated: true)
     }
 
     // swiftlint:disable function_parameter_count
     /// Displays a dialog with a message prompting the user to input some text.
     /// - Parameters:
-    ///     - viewController: The view controller used to present the prompt.
+    ///     - in: The view controller used to present the prompt.
     ///     - title: The text shown as the title of the prompt.
     ///     - message: The text shown in the body of the prompt.
+    ///     - confirmActionTitle: The text shown in the prompt's confirm action.
     ///     - placeholder: The placeholder shown in the prompt's text field.
     ///     - initialValue: The initial value of the prompt's text field.
     ///     - confirmHandler: The action to be performed when the user confirms the prompt.

@@ -6,7 +6,6 @@
 //  Copyright © 2020 Shawn Koh. All rights reserved.
 //
 
-import CoreGraphics
 import RealmSwift
 
 class PegData: Object {
