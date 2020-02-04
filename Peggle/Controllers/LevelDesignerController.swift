@@ -30,23 +30,27 @@ class LevelDesignerController: UIViewController {
         }
     }
 
+    
+    /// Detect view load state and initialize level editor
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Set up tools
-        pegTools = [normalPegTool, objectivePegTool, deletePegTool]
-        pegTools.forEach { $0.layer.borderColor = Settings.selectedPegToolBorderColor }
+        // Generate interaction controls
+        pegTool = [normalPegTool, objectivePegTool, deletePegTool]
+        pegTool.forEach { $0.layer.borderColor = Settings.selectedPegToolBorderColor }
 
-        let canvasGestureRecognizer = UITapGestureRecognizer(target: self,
-                                                             action: #selector(canvasTapped(tapGestureRecognizer:)))
-        canvasControl.addGestureRecognizer(canvasGestureRecognizer)
+        // Init main level gesture detection
+        let levelTouch = UITapGestureRecognizer(target: self, action: #selector(canvasTapped(tapGestureRecognizer:)))
+        canvasControl.addGestureRecognizer(levelTouch)
 
+        // Enable user input
         levelNameLabel.isUserInteractionEnabled = true
-        let levelNameGestureRecognizer =
-            UITapGestureRecognizer(target: self,
-                                   action: #selector(levelNameTapped(tapGestureRecognizer:)))
-        levelNameLabel.addGestureRecognizer(levelNameGestureRecognizer)
+        
+        // Init name label gesture detection
+        let nameTouch = UITapGestureRecognizer(target: self, action: #selector(levelNameTapped(tapGestureRecognizer:)))
+        levelNameLabel.addGestureRecognizer(nameTouch)
 
+        // Bind self to level
         LevelDesigner.setup(levelDelegate: self)
     }
 
